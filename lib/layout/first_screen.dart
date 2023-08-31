@@ -1,40 +1,41 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+class FirstScreen extends StatefulWidget {
+  const FirstScreen({super.key});
 
-class FirstScreen extends StatelessWidget{
-  final controller = PageController(viewportFraction: 0.8, keepPage: true);  FirstScreen({super.key});
-  
+  @override
+  State<FirstScreen> createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
+  final controller = PageController(viewportFraction: 0.8, keepPage: true);
+
   @override
   Widget build(BuildContext context) {
-    final pages = List.generate(
-        2, (index) =>
-    )
-
-    return  Scaffold(
+    const pageCount = 2;
+    return Scaffold(
       body: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'images/man1.png',
+              'images/mannn.jpg',
             ),
-            fit:BoxFit.cover,
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
-          children:  [
-
+          children: [
             Spacer(),
             Text(
               'SUPPLEMENTS',
               style: TextStyle(
                 fontSize: 40.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.cyan,
+                color: Colors.white,
                 shadows: const <Shadow>[
                   Shadow(
                     offset: Offset(0, 0),
@@ -51,66 +52,67 @@ class FirstScreen extends StatelessWidget{
             ),
             Padding(
               padding: EdgeInsets.all(15.0),
-              child:
-                Text(
+              child: Text(
                 '   Pre-workout supplements, which are powdered and mixed with water, '
-                    'are said to improve athletic performance and energy levels'
-                    'Fitness gurus and blogs touting these products as crucial '
-                    'for peak performance, fat loss,',
+                'are said to improve athletic performance and energy levels'
+                'Fitness gurus and blogs touting these products as crucial '
+                'for peak performance, fat loss,',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white,
                 ),
               ),
             ),
-
-                Spacer(),
+            Spacer(),
             SmoothPageIndicator(
               controller: controller,
-              count: 4,
-              effect:SlideEffect (
-              dotColor: Colors.grey,
+              count: 2,
+              effect: SlideEffect(
+                dotColor: Colors.grey,
                 activeDotColor: Colors.white,
                 dotHeight: 9.0,
                 dotWidth: 9.0,
               ),
             ),
-                 Padding(
+            Padding(
               padding: const EdgeInsets.all(15.0),
               child: Row(
                 children: [
                   Expanded(
                     child: TextButton(
-                        onPressed: (){},
+                      onPressed: () {},
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.white,
-                        onSurface: Colors.grey,
+                        disabledForegroundColor: Colors.grey.withOpacity(0.38),
                         elevation: 5.0,
-                        shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0)),
                       ),
-                        child: Text('Login',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.cyan,
-                          ),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.cyan,
                         ),
-                    ),),
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     width: 40.0,
                   ),
                   Expanded(
                     child: TextButton(
-                      onPressed: (){},
+                      onPressed: () {},
                       style: TextButton.styleFrom(
-                        primary: Colors.white,
+                        foregroundColor: Colors.white,
                         backgroundColor: Colors.cyan,
-                        onSurface: Colors.grey,
+                        disabledForegroundColor: Colors.grey.withOpacity(0.38),
                         elevation: 5.0,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0)
-                        ),
+                            borderRadius: BorderRadius.circular(15.0)),
                       ),
-                      child: Text('SignUp',
+                      child: Text(
+                        'SignUp',
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
@@ -124,7 +126,7 @@ class FirstScreen extends StatelessWidget{
                 ],
               ),
             ),
-                 SizedBox(
+            SizedBox(
               height: 40.0,
               width: 20.0,
             ),
@@ -133,8 +135,4 @@ class FirstScreen extends StatelessWidget{
       ),
     );
   }
-
-
-
-
 }

@@ -62,7 +62,7 @@ class SecondScreen extends StatelessWidget{
               const Spacer(),
               SmoothPageIndicator(
                 controller: controller,
-                count: 4,
+                count: 2,
                 effect:const SlideEffect (
                   dotColor: Colors.grey,
                   activeDotColor: Colors.white,
@@ -79,7 +79,7 @@ class SecondScreen extends StatelessWidget{
                         onPressed: (){},
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.white.withOpacity(0.0),
-                          onSurface: Colors.grey,
+                          disabledForegroundColor: Colors.grey.withOpacity(0.38),
                           elevation: 0.0,
                           side: const BorderSide(color: Colors.white,width: 1.0),
                           shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
@@ -91,16 +91,14 @@ class SecondScreen extends StatelessWidget{
                           ),
                         ),
                       ),),
-                    SizedBox(
+                    const SizedBox(
                       width: 40.0,
                     ),
                     Expanded(
                       child: TextButton(
                         onPressed: (){},
                         style: TextButton.styleFrom(
-                          primary: Colors.white,
-                          backgroundColor: Colors.white,
-                          onSurface: Colors.grey,
+                          foregroundColor: Colors.white, backgroundColor: Colors.white, disabledForegroundColor: Colors.grey.withOpacity(0.38),
                           elevation: 5.0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0)
@@ -114,7 +112,7 @@ class SecondScreen extends StatelessWidget{
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40.0,
                     ),
                   ],
