@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../intro_model.dart';
+import 'home_page.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -15,15 +16,25 @@ class _IntroScreenState extends State<IntroScreen> {
   static const list = <IntroModel>[
     IntroModel(
         title: "Supplements",
-        description: "this is supplements for power",
+        description:
+            "Pre-workout supplements are designed to provide energy and aid endurance throughout a workout. They are typically taken 15-30 minutes before a workout,"
+            " but can also be consumed during exercise. Below are common ingredients found in "
+            "pre-workout supplements that the Academy of Nutrition and Dietetics, Dietitians of Canada, "
+            "and the American College of Sports Medicine have highlighted as having evidence",
         image: AssetImage('images/woman.jpg')),
     IntroModel(
-        title: "Supplements porten",
-        description: "this is supplements for power",
+        title: " Creatine Supplement",
+        description:
+            "Creatine is a naturally occurring compound found in skeletal muscle "
+            "that is synthesized in the body from amino acids and can be obtained from red meat and seafood. "
+            "In the body, it helps produce adenosine triphosphate (ATP), which provides energy for muscles. Creatine is a popular workout supplement marketed to increase athletic performance, especially for weight training."
+            " Research suggests that creatine supplementation increases muscle availability of creatine",
         image: AssetImage('images/mannn.jpg')),
     IntroModel(
-        title: " craeten",
-        description: "this is supplements for power",
+        title: " Post-Workout Supplements",
+        description:
+            "A variety of post-workout supplements are marketed to consumers to increase muscle mass through enhanced muscle repair, recovery, and growth."
+            " Below is a review of some of the most common ingredients in post-workout supplements",
         image: AssetImage('images/arm.png')),
   ];
   var _index = 0;
@@ -142,9 +153,33 @@ class TitleAndDescriptionWidget extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            const Text(
+              "Skip",
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.white,
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                _navigateToNextScreen(context);
+              },
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 200.0,
+        ),
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 40.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -163,7 +198,7 @@ class TitleAndDescriptionWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(15.0),
           child: Text(
             description,
             style: const TextStyle(
@@ -175,4 +210,9 @@ class TitleAndDescriptionWidget extends StatelessWidget {
       ],
     );
   }
+}
+
+void _navigateToNextScreen(BuildContext context) {
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => const HomePage()));
 }
