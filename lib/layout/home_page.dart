@@ -197,14 +197,6 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.pink[100],
           ),
           BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.local_grocery_store,
-              size: 30.0,
-            ),
-            label: "Store",
-            backgroundColor: Colors.pink[100],
-          ),
-          BottomNavigationBarItem(
             icon: const Icon(Icons.no_meals),
             label: "Plane Meal ",
             backgroundColor: Colors.pink[100],
@@ -221,8 +213,14 @@ class _HomePageState extends State<HomePage> {
         iconSize: 20.0,
         onTap: _onitemtapped,
         elevation: 5,
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
+        showUnselectedLabels: true,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Store',
+        backgroundColor: Colors.pink[50],
+        child: const Icon(Icons.local_grocery_store_rounded),
       ),
     );
   }
